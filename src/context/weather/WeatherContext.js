@@ -9,7 +9,7 @@ export const WeatherProvider = ({ children }) => {
 
   async function getWeather(city) {
     const response = await api.get(
-      `weather?q=${city}&appid=29b6ea7284c2c606758698f1492c0a87`
+      `weather?q=${city}&lang=pt_br&units=metric&appid=29b6ea7284c2c606758698f1492c0a87`
     );
     if (response.data) {
       setData(response.data);

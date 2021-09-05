@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
-import { Icon } from "react-native-elements/dist/icons/Icon";
 import { WeatherContext } from "../../context/weather/WeatherContext";
 import { styles } from "./Styles";
 
@@ -12,7 +11,7 @@ export default function WeatherCard() {
     <View style={styles.container}>
       <Card
         title="Weather Card"
-        elevation={7}
+        elevation={5}
         containerStyle={styles.card}
         wrapperStyle={styles.cardSize}
       >
@@ -23,13 +22,13 @@ export default function WeatherCard() {
           Longitude:{data !== "" ? data.coord.lon : ""}
         </Text>
         <Text style={styles.paragraph}>
-          Temperature:{data !== "" ? data.main.temp : ""}
+          Temperature:{data !== "" ? `${Math.trunc(data.main.temp)}º` : ""}
         </Text>
         <Text style={styles.paragraph}>
           Condition:{data !== "" ? data.weather[0].main : ""}
         </Text>
         <Text style={styles.paragraph}>
-          Humidity:{data !== "" ? data.main.humidity : ""}
+          Humidity:{data !== "" ? `${data.main.humidity}%` : ""}
         </Text>
       </Card>
     </View>
