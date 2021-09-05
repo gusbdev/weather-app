@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import BackgroundAnimation from "./src/components/BackgroundAnimation/BackgroundAnimation";
+import ButtonSearch from "./src/components/Button/Button";
+import WeatherCard from "./src/components/Card/WeatherCard";
+import SearchBarCity from "./src/components/SearchBar/SearchBar";
+import Time from "./src/components/Time/Time";
+import { WeatherProvider } from "./src/context/weather/WeatherContext";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <WeatherProvider>
+        <Time />
+        <SearchBarCity />
+        <ButtonSearch />
+        <WeatherCard />
+      </WeatherProvider>
+      <BackgroundAnimation />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
